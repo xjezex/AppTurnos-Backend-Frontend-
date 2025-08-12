@@ -1,0 +1,132 @@
+<!-- Formulario para agregar un nuevo profesional -->
+<div class="card-body">
+    <div class="col-sm-12">
+      <h5 class="card-title"><i class="fa fa-fw fa-plus"></i>Agregar Profesional</h5>
+      <form (ngSubmit)="addProfesional()">
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" [(ngModel)]="nuevoProfesional.nombre" name="nombre" class="form-control" placeholder="Ingrese nombre" required>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Apellido</label>
+              <input type="text" [(ngModel)]="nuevoProfesional.apellido" name="apellido" class="form-control" placeholder="Ingrese apellido" required>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="text" [(ngModel)]="nuevoProfesional.telefono" name="telefono" class="form-control" placeholder="Ingrese teléfono" required>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Especialidad</label>
+              <input type="text" [(ngModel)]="nuevoProfesional.especialidad" name="especialidad" class="form-control" placeholder="Ingrese especialidad" required>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <div>
+                <button type="submit" class="btn btn-success"><i class="fa fa-fw fa-plus"></i> Agregar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<!-- Formulario para buscar profesional -->
+<div class="card-body">
+  <div class="col-sm-12">
+    <h5 class="card-title"><i class="fa fa-fw fa-search"></i>Buscar Profesional</h5>
+    <form (ngSubmit)="searchProfesionales()">
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label>Nombre o Apellido</label>
+            <input type="text" [(ngModel)]="searchCriteria" name="searchCriteria" id="searchCriteria" class="form-control" placeholder="Ingrese nombre o apellido">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label>&nbsp;</label>
+            <div>
+              <button type="submit" name="submit" value="search" id="submit" class="btn btn-primary">
+                <i class="fa fa-fw fa-search"></i> Buscar
+              </button>
+              &nbsp;
+              <button type="button" class="btn btn-info" (click)="searchCriteria=''; searchProfesionales();">
+                <i class="fa fa-fw fa-sync"></i> Recargar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Tabla con listado de profesionales -->
+<div>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr class="bg-primary text-white">
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Teléfono</th>
+          <th>Especialidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let profesional of filteredProfesionales">
+          <td *ngIf="editProfesional && editProfesional.id === profesional.id">
+            <input type="text" [(ngModel)]="editProfesional.nombre" name="nombre" class="form-control" placeholder="Nombre">
+          </td>
+          <td *ngIf="!(editProfesional && editProfesional.id === profesional.id)">
+            {{ profesional.nombre }}
+          </td>
+          <td *ngIf="editProfesional && editProfesional.id === profesional.id">
+            <input type="text" [(ngModel)]="editProfesional.apellido" name="apellido" class="form-control" placeholder="Apellido">
+          </td>
+          <td *ngIf="!(editProfesional && editProfesional.id === profesional.id)">
+            {{ profesional.apellido }}
+          </td>
+          <td *ngIf="editProfesional && editProfesional.id === profesional.id">
+            <input type="text" [(ngModel)]="editProfesional.telefono" name="telefono" class="form-control" placeholder="Teléfono">
+          </td>
+          <td *ngIf="!(editProfesional && editProfesional.id === profesional.id)">
+            {{ profesional.telefono }}
+          </td>
+          <td *ngIf="editProfesional && editProfesional.id === profesional.id">
+            <input type="text" [(ngModel)]="editProfesional.especialidad" name="especialidad" class="form-control" placeholder="Especialidad">
+          </td>
+          <td *ngIf="!(editProfesional && editProfesional.id === profesional.id)">
+            {{ profesional.especialidad }}
+          </td>
+          <td>
+            <button *ngIf="editProfesional && editProfesional.id === profesional.id" type="button" class="btn btn-primary" (click)="updateProfesional()">
+              <i class="fa fa-fw fa-check"></i> Guardar
+            </button>
+            &nbsp;
+            <button *ngIf="editProfesional && editProfesional.id === profesional.id" type="button" class="btn btn-secondary" (click)="cancelEdit()">
+              <i class="fa fa-fw fa-times"></i> Cancelar
+            </button>
+            <button *ngIf="!(editProfesional && editProfesional.id === profesional.id)" type="button" class="btn btn-warning" (click)="startEdit(profesional)">
+              <i class="fa fa-fw fa-edit"></i> Editar
+            </button>
+            &nbsp;
+            <button type="button" class="btn btn-danger" (click)="deleteProfesional(profesional.id)">
+              <i class="fa fa-fw fa-trash"></i> Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

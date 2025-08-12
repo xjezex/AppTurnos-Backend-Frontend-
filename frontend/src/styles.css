@@ -1,0 +1,323 @@
+/* Estilos generales para el cuerpo de la página (manteniendo la base compacta) */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+/* NAVBAR general (ajustes sutiles) */
+.navbar-icon-top {
+  background: linear-gradient(to right, #2c3e50, #4a69bd); /* Gradiente de azul oscuro a azul medio */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 0.8rem 2rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Estilos para el LOGO + TITULO (navbar-brand) */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre el logo y el texto */
+  margin-right: 2rem;
+}
+
+.navbar-brand img {
+  width: 35px;
+  height: 35px;
+  border: 2px solid rgba(255, 255, 255, 0.6); /* Borde ligeramente más grueso y visible */
+  border-radius: 50%; /* Asegura que siga siendo redondo */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra más definida */
+  transition: all 0.3s ease-in-out; /* Transición para efectos suaves */
+}
+
+/* Efecto hover para el logo */
+.navbar-brand img:hover {
+  transform: scale(1.1); /* Ligeramente más grande al pasar el ratón */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), /* Brillo sutil alrededor del logo */
+              0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+/* Estilos mejorados para el TÍTULO DE LA APLICACIÓN */
+.app-title {
+  font-family: 'Montserrat', sans-serif; /* Fuente impactante */
+  font-weight: 800; /* Más negrita para mayor impacto */
+  font-size: 1.9rem; /* Un tamaño ligeramente mayor pero sin ser excesivo */
+  color: #ffffff; /* Color blanco puro */
+  text-shadow:
+    0 0 5px rgba(173, 216, 230, 0.7), /* Sutil brillo azul claro */
+    0 0 10px rgba(173, 216, 230, 0.5), /* Más brillo azul claro */
+    2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra para profundidad */
+  letter-spacing: 1px; /* Espaciado entre letras para un look más refinado */
+  transition: all 0.3s ease-in-out; /* Transición para un efecto sutil al interactuar */
+}
+
+/* Efecto hover opcional para el título */
+.app-title:hover {
+  transform: scale(1.02); /* Ligeramente más grande al pasar el ratón */
+  text-shadow:
+    0 0 8px rgba(173, 216, 230, 0.9),
+    0 0 15px rgba(173, 216, 230, 0.7),
+    3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* --- El resto de tus estilos CSS para la navegación, botones, tablas, etc. --- */
+/* (Asegúrate de mantener el resto del CSS que ya tenías para los otros elementos) */
+
+/* Estilos para los elementos de navegación (links) */
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  margin: 0 4px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para el link activo */
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-link.active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  border-bottom: 2px solid #6dd5ed;
+  transform: translateY(0);
+}
+
+/* Estilos para los íconos de Font Awesome */
+.navbar-nav .nav-link i {
+  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+/* Estilos para el separador "|" */
+.navbar-nav li {
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 1.1rem;
+}
+
+/* Estilos para el dropdown de "Mi perfil" */
+.navbar-nav .dropdown-menu {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: none;
+  margin-top: 8px;
+}
+
+.dropdown-item {
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+  color: #007bff;
+}
+
+.dropdown-divider {
+  border-top: 1px solid #e0e0e0;
+  margin: 0.4rem 0;
+}
+
+/* Estilos para el badge de notificación (por ejemplo, en "Turnos") */
+.navbar-nav .badge-danger {
+  background-color: #ff6b6b;
+  padding: 0.3em 0.6em;
+  border-radius: 50%;
+  font-size: 0.65em;
+  vertical-align: super;
+  margin-left: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para el contenedor principal de la aplicación */
+.container-fluid {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+/* Mejoras para las tarjetas (card-body) */
+.card-body {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+/* Estilos para los títulos dentro de las tarjetas */
+.card-title {
+  color: #34495e;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-title i {
+  color: #007bff;
+  font-size: 1.15rem;
+}
+
+/* Estilos para los botones */
+.btn {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #343a40;
+}
+.btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #cc9500;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+.btn-info:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la tabla */
+.table {
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.table thead th {
+  background-color: #007bff;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 8px;
+  font-size: 0.95rem;
+  border-bottom: none;
+}
+
+.table tbody tr {
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.table tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.table tbody td {
+  padding: 6px;
+  vertical-align: middle;
+  border-top: none;
+  font-size: 0.9rem;
+}
+
+/* Estilos para los campos de formulario */
+.form-control {
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  padding: 8px 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.2);
+}
+
+label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 1.5rem;
+  }
+  .navbar-nav .nav-link {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .navbar-brand {
+    margin-right: 1rem;
+  }
+  .navbar-nav .nav-link i {
+    margin-right: 5px;
+  }
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+}

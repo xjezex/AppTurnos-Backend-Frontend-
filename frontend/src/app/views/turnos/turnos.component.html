@@ -1,0 +1,176 @@
+<!-- Formulario para agregar un nuevo turno -->
+<div class="card-body">
+  <div class="col-sm-12">
+    <h5 class="card-title"><i class="fa fa-fw fa-plus"></i>Agregar Turno</h5>
+    <form (ngSubmit)="agregarTurno()" #turnoForm="ngForm">
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label>Paciente</label>
+            <select class="form-control" [(ngModel)]="nuevoTurno.pacienteId" name="pacienteId" required>
+              <option [ngValue]="null">Seleccione un paciente</option>
+              <option *ngFor="let paciente of pacientes" [ngValue]="paciente.id">
+                {{ paciente.nombre }} {{ paciente.apellido }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label>Profesional</label>
+            <select class="form-control" [(ngModel)]="nuevoTurno.profesionalId" name="profesionalId" required>
+              <option [ngValue]="null">Seleccione un profesional</option>
+              <option *ngFor="let profesional of profesionales" [ngValue]="profesional.id">
+                {{ profesional.nombre }} {{ profesional.apellido }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label>Fecha</label>
+            <input type="date" class="form-control" [(ngModel)]="nuevoTurno.fecha" name="fecha" required>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label>Hora</label>
+            <input type="time" step="600" class="form-control" [(ngModel)]="nuevoTurno.hora" name="hora" required>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label>Duración (min)</label>
+            <input type="number" class="form-control" [(ngModel)]="nuevoTurno.duracion" name="duracion" required min="1">
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label>&nbsp;</label>
+            <button type="submit" class="btn btn-success btn-block" [disabled]="!turnoForm.form.valid">
+              <i class="fa fa-fw fa-plus"></i> Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Formulario para buscar turno -->
+<div class="card-body">
+  <div class="col-sm-12">
+    <h5 class="card-title"><i class="fa fa-fw fa-search"></i>Buscar Turno</h5>
+    <form (ngSubmit)="searchTurnos()">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label>Nombre o Apellido</label>
+            <input type="text" [(ngModel)]="searchCriteria" name="searchCriteria" class="form-control" placeholder="Paciente o Profesional">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label>&nbsp;</label>
+            <div>
+              <button type="submit" class="btn btn-primary">
+                <i class="fa fa-fw fa-search"></i> Buscar
+              </button>
+              &nbsp;
+              <button type="button" class="btn btn-info" (click)="searchCriteria=''; searchTurnos()">
+                <i class="fa fa-fw fa-sync"></i> Recargar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Tabla con listado de turnos -->
+<div>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr class="bg-primary text-white">
+        <th>Paciente</th>
+        <th>Profesional</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Duración</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let turno of filteredTurnos">
+        <!-- Paciente -->
+        <td *ngIf="editTurno?.id === turno.id">
+          <select class="form-control" [(ngModel)]="editTurno.pacienteId" name="pacienteId">
+            <option [ngValue]="null">Seleccione</option>
+            <option *ngFor="let paciente of pacientes" [ngValue]="paciente.id">
+              {{ paciente.nombre }} {{ paciente.apellido }}
+            </option>
+          </select>
+        </td>
+        <td *ngIf="editTurno?.id !== turno.id">
+          {{ turno.paciente?.nombre }} {{ turno.paciente?.apellido }}
+        </td>
+
+        <!-- Profesional -->
+        <td *ngIf="editTurno?.id === turno.id">
+          <select class="form-control" [(ngModel)]="editTurno.profesionalId" name="profesionalId">
+            <option [ngValue]="null">Seleccione</option>
+            <option *ngFor="let profesional of profesionales" [ngValue]="profesional.id">
+              {{ profesional.nombre }} {{ profesional.apellido }}
+            </option>
+          </select>
+        </td>
+        <td *ngIf="editTurno?.id !== turno.id">
+          {{ turno.profesional?.nombre }} {{ turno.profesional?.apellido }}
+        </td>
+
+        <!-- Fecha -->
+        <td *ngIf="editTurno?.id === turno.id">
+          <input type="date" class="form-control" [(ngModel)]="editTurno.fecha" name="fecha">
+        </td>
+        <td *ngIf="editTurno?.id !== turno.id">
+          {{ turno.fecha | date: 'dd-MM-yyyy' }}
+        </td>
+
+        <!-- Hora -->
+        <td *ngIf="editTurno?.id === turno.id">
+          <input type="time" class="form-control" [(ngModel)]="editTurno.hora" name="hora">
+        </td>
+        <td *ngIf="editTurno?.id !== turno.id">
+          {{ turno.hora?.substring(0, 5) }}
+        </td>
+
+        <!-- Duración -->
+        <td *ngIf="editTurno?.id === turno.id">
+          <input type="number" class="form-control" [(ngModel)]="editTurno.duracion" name="duracion" min="1">
+        </td>
+        <td *ngIf="editTurno?.id !== turno.id">
+          {{ turno.duracion }} min
+        </td>
+
+        <!-- Acciones -->
+        <td>
+          <button *ngIf="editTurno?.id === turno.id" type="button" class="btn btn-primary" (click)="guardarEdicion(editTurno)">
+            <i class="fa fa-fw fa-check"></i> Guardar
+          </button>
+          &nbsp;
+          <button *ngIf="editTurno?.id === turno.id" type="button" class="btn btn-secondary" (click)="cancelEdit()">
+            <i class="fa fa-fw fa-times"></i> Cancelar
+          </button>
+          <button *ngIf="editTurno?.id !== turno.id && esTurnoFuturo(turno)"  type="button" class="btn btn-warning" (click)="startEdit(turno)">
+            <i class="fa fa-fw fa-edit"></i> Editar
+          </button>
+          &nbsp;
+          <button  *ngIf="esTurnoFuturo(turno)" type="button" class="btn btn-danger" (click)="eliminarTurno(turno.id)">
+            <i class="fa fa-fw fa-trash"></i> Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
