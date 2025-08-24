@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
 # AppTurnos — Backend (Java + Spring Boot)
 
 **Resumen breve**
@@ -12,6 +15,7 @@ Desarrollado con **Java 17** y **Spring Boot 3.3.0**, sigue una arquitectura en 
 2. [Estructura del proyecto](#estructura-del-proyecto)
 3. [Configuración (application.properties)](#configuracion-applicationproperties)
 4. [Ejecución](#ejecucion)
+<<<<<<< HEAD
     - [Con Docker Compose (recomendado)](#con-docker-compose-recomendado)
     - [Local con Maven / IntelliJ](#local-con-maven--intellij)
 5. [Endpoints principales / API](#endpoints-principales--api)
@@ -20,15 +24,30 @@ Desarrollado con **Java 17** y **Spring Boot 3.3.0**, sigue una arquitectura en 
 8. [Mapping al perfil solicitado por reclutador](#mapping-al-perfil-solicitado-por-reclutador)
 9. [Notas operativas / Consideraciones](#notas-operativas--consideraciones)
 10. [Contacto y licencia](#contacto-y-licencia)
+=======
+   - [Con Docker Compose (recomendado)](#con-docker-compose-recomendado)
+   - [Local con Maven / IntelliJ](#local-con-maven--intellij)
+5. [Endpoints principales / API](#endpoints-principales--api)
+6. [Seguridad](#seguridad-)
+7. [Testing](#testing)
+8. [Estado actual / Roadmap](#estado-actual--roadmap)
+9. [Contacto y licencia](#contacto-y-licencia)
+>>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
 
 ---
 
 ## Tecnologías
 - Java 17
 - Spring Boot 3.3.0
+<<<<<<< HEAD
     - spring-boot-starter-web
     - spring-boot-starter-data-jpa
     - spring-boot-starter-validation
+=======
+  - spring-boot-starter-web
+  - spring-boot-starter-data-jpa
+  - spring-boot-starter-validation
+>>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
 - PostgreSQL 15 (Docker image en `docker-compose.yml`)
 - Lombok (scope: provided)
 - MapStruct (mappers entidad ↔ DTO)
@@ -52,6 +71,10 @@ src/main/java/com/turnos
 ├── repository         # Repositorios Spring Data (TurnoRepository, PacienteRepository, ProfesionalRepository)
 ├── service            # Lógica de negocio (TurnoService, PacienteService, ProfesionalService)
 ├── config             # Configuración (SwaggerConfig, etc.)
+<<<<<<< HEAD
+=======
+├── security           # Seguridad (JWT, filtros, configuración de Spring Security)
+>>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
 └── model              # Modelos auxiliares (DisponibilidadHoraria, etc.)
 ```
 
@@ -196,13 +219,67 @@ Content-Type: application/json
 
 ---
 
+<<<<<<< HEAD
+=======
+## Seguridad 🔐
+La aplicación incluye un **módulo de autenticación en desarrollo**, basado en **Spring Security** y **JWT (JSON Web Token)**, con el objetivo de proteger los endpoints sensibles y gestionar el acceso de usuarios.
+
+### Estado actual
+- Configuración básica de **Spring Security** integrada al proyecto.
+- Generación y validación de **JWT** para login y acceso a rutas protegidas.
+- Middleware/Filtros para validar tokens en cada request.
+
+### Roadmap próximo
+- Definir roles y autorizaciones (ej. `ROLE_USER`, `ROLE_ADMIN`).
+- Proteger endpoints críticos de la API (ej: creación/eliminación de recursos).
+- Implementar endpoints de autenticación:
+  - `POST /auth/login` → genera JWT válido.
+  - `POST /auth/register` → registro de usuarios (opcional).
+  - `GET /auth/me` → devuelve información del usuario autenticado.
+
+**Ejemplo de login (en desarrollo):**
+
+```http
+POST /auth/login
+Content-Type: application/json
+
+{
+  "username": "usuario",
+  "password": "contraseña"
+}
+```
+
+**Respuesta esperada:**
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
+}
+```
+
+---
+
+>>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
 ## Testing
 El proyecto ya incluye dependencias para JUnit 5 y Mockito. Para ejecutar tests:
 
 ```bash
 mvn test
 ```
+<<<<<<< HEAD
 
+=======
+### Cobertura con JaCoCo
+Para generar el reporte de cobertura de código:
+
+```bash
+mvn clean verify
+```
+El reporte HTML se encuentra en:
+```
+target/site/jacoco/index.html
+```
+>>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
 ---
 
 ## Estado actual / Roadmap
@@ -215,7 +292,11 @@ mvn test
 - Estructura de proyecto con capas bien separadas.
 
 **En desarrollo**
+<<<<<<< HEAD
 - Autenticación/Autorización (Spring Security + JWT) — planificado.
+=======
+- Autenticación/Autorización (Spring Security + JWT) — en progreso.
+>>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
 - Cobertura de tests ampliada (muestras unitarias y de integración).
 - Scripts de datos iniciales (seed) para facilitar evaluación.
 - Analisis general en busca de refactor code.
@@ -226,4 +307,8 @@ mvn test
 - Autor: *Ezequiel* (repositorio personal — proyecto demostrativo)
 - Licencia: Uso personal / demostrativo.
 
+<<<<<<< HEAD
 ---
+=======
+---
+>>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
