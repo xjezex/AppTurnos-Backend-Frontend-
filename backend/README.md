@@ -11,7 +11,6 @@ Desarrollado con **Java 17** y **Spring Boot 3.3.0**, sigue una arquitectura en 
 2. [Estructura del proyecto](#estructura-del-proyecto)
 3. [Configuración (application.properties)](#configuracion-applicationproperties)
 4. [Ejecución](#ejecucion)
-<<<<<<< HEAD
     - [Con Docker Compose (recomendado)](#con-docker-compose-recomendado)
     - [Local con Maven / IntelliJ](#local-con-maven--intellij)
 5. [Endpoints principales / API](#endpoints-principales--api)
@@ -28,7 +27,7 @@ Desarrollado con **Java 17** y **Spring Boot 3.3.0**, sigue una arquitectura en 
 7. [Testing](#testing)
 8. [Estado actual / Roadmap](#estado-actual--roadmap)
 9. [Contacto y licencia](#contacto-y-licencia)
->>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
+
 
 ---
 
@@ -215,8 +214,6 @@ Content-Type: application/json
 
 ---
 
-<<<<<<< HEAD
-=======
 ## Seguridad 🔐
 La aplicación incluye un **módulo de autenticación en desarrollo**, basado en **Spring Security** y **JWT (JSON Web Token)**, con el objetivo de proteger los endpoints sensibles y gestionar el acceso de usuarios.
 
@@ -303,8 +300,8 @@ target/site/jacoco/index.html
 - Autor: *Ezequiel* (repositorio personal — proyecto demostrativo)
 - Licencia: Uso personal / demostrativo.
 
-<<<<<<< HEAD
+
 ---
-=======
+
 ---
->>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
+
