@@ -204,8 +204,6 @@ Content-Type: application/json
 }
 ```
 
-> Ajustá los campos reales según tus DTOs. Los anteriores son ejemplos de convención común y pueden adaptarse a tus `TurnoDTO`.
-
 ---
 
 ## Seguridad 🔐
