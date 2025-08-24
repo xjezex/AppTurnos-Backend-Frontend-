@@ -63,10 +63,7 @@ src/main/java/com/turnos
 ├── repository         # Repositorios Spring Data (TurnoRepository, PacienteRepository, ProfesionalRepository)
 ├── service            # Lógica de negocio (TurnoService, PacienteService, ProfesionalService)
 ├── config             # Configuración (SwaggerConfig, etc.)
-<<<<<<< HEAD
-=======
 ├── security           # Seguridad (JWT, filtros, configuración de Spring Security)
->>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
 └── model              # Modelos auxiliares (DisponibilidadHoraria, etc.)
 ```
 
