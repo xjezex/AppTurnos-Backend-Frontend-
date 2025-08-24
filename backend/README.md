@@ -249,15 +249,12 @@ Content-Type: application/json
 
 ---
 
->>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
 ## Testing
 El proyecto ya incluye dependencias para JUnit 5 y Mockito. Para ejecutar tests:
 
 ```bash
 mvn test
 ```
-<<<<<<< HEAD
-
 =======
 ### Cobertura con JaCoCo
 Para generar el reporte de cobertura de código:
@@ -269,7 +266,6 @@ El reporte HTML se encuentra en:
 ```
 target/site/jacoco/index.html
 ```
->>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
 ---
 
 ## Estado actual / Roadmap
@@ -282,11 +278,9 @@ target/site/jacoco/index.html
 - Estructura de proyecto con capas bien separadas.
 
 **En desarrollo**
-<<<<<<< HEAD
 - Autenticación/Autorización (Spring Security + JWT) — planificado.
-=======
 - Autenticación/Autorización (Spring Security + JWT) — en progreso.
->>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
+
 - Cobertura de tests ampliada (muestras unitarias y de integración).
 - Scripts de datos iniciales (seed) para facilitar evaluación.
 - Analisis general en busca de refactor code.
