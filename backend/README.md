@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 21a64ca5cab197e630da4e8f5739a26ae4307e36
 # AppTurnos — Backend (Java + Spring Boot)
 
 **Resumen breve**
