@@ -34,11 +34,9 @@ Desarrollado con **Java 17** y **Spring Boot 3.3.0**, sigue una arquitectura en 
 ## Tecnologías
 - Java 17
 - Spring Boot 3.3.0
-<<<<<<< HEAD
     - spring-boot-starter-web
     - spring-boot-starter-data-jpa
     - spring-boot-starter-validation
-=======
   - spring-boot-starter-web
   - spring-boot-starter-data-jpa
   - spring-boot-starter-validation
